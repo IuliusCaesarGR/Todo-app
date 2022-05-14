@@ -1,0 +1,31 @@
+.button_filter{
+    width: 90%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    position: relative;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 8px;
+    padding: 0 50px;
+    button{
+        color:hsl(236, 9%, 61%);
+        font-size: 18px;
+        font-weight: 700;
+        border: none;
+        background-color: transparent;
+        &:hover{
+            color: hsl(220, 98%, 61%);
+        }
+    }
+}
+.paragraph{
+    color:hsl(236, 9%, 61%);
+    font-size: 16px;
+    margin: 30px auto 0;
+    text-align: center;
+}

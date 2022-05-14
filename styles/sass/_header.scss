@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    width: 100vw;
+    height: 230px;
+    background-image: url('./images/bg-mobile-light.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 45px 25px 0px;
+}
+.title{
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 10px;
+}
+.mode{
+    background-color: transparent;
+    border: none;
+    img{
+        width: 23px;
+        height: 23px;
+    }
+}
+@media (min-width: 480px) {
+    .container{
+        background-image: url('./images/bg-desktop-light.jpg');
+    }
+}

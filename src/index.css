@@ -1,13 +1,189 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-size: 18px;
+  /* background-color: hsl(0, 0%, 98%); */
+  background-color: #e4e5f1;
 }
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 230px;
+  background-image: url("./images/bg-mobile-light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 45px 25px 0px;
+}
+
+.title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 10px;
+}
+
+.mode {
+  background-color: transparent;
+  border: none;
+}
+.mode img {
+  width: 23px;
+  height: 23px;
+}
+
+@media (min-width: 480px) {
+  .container {
+    background-image: url("./images/bg-desktop-light.jpg");
+  }
+}
+.browser {
+  width: 90%;
+  height: 50px;
+  background-color: white;
+  border-radius: 8px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.browser__create {
+  border: none;
+  width: 85%;
+  height: 40px;
+}
+.browser__create:hover {
+  outline: none;
+}
+
+figure {
+  margin: 0;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  border-radius: 12px;
+  position: relative;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.todo {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  justify-content: space-between;
+  background-color: white;
+  align-items: center;
+  padding: 0px 20px;
+  margin-bottom: 2px;
+}
+.todo__check {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right bottom, #57ddff, #c058f3);
+  align-items: center;
+  margin-right: 13px;
+}
+.todo__check img {
+  margin: 0 auto;
+  width: 11px;
+  height: 11px;
+}
+.todo__none {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-image: white;
+  border: 1px solid black;
+  align-items: center;
+  margin-right: 13px;
+}
+.todo__text {
+  width: 83%;
+  font-size: 14px;
+}
+.todo__done {
+  width: 83%;
+  font-size: 14px;
+  text-decoration: line-through;
+  color: #d2d3db;
+}
+.todo__cross {
+  margin-left: 10px;
+}
+
+.task ::before {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.result {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.result p {
+  font-size: 15px;
+  font-weight: 400;
+  color: #9394a5;
+}
+
+.button_filter {
+  width: 90%;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  position: relative;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 8px;
+  padding: 0 50px;
+}
+.button_filter button {
+  color: #9394a5;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+}
+.button_filter button:hover {
+  color: #3a7bfd;
+}
+
+.paragraph {
+  color: #9394a5;
+  font-size: 16px;
+  margin: 30px auto 0;
+  text-align: center;
+}
+
+/*# sourceMappingURL=index.css.map */
