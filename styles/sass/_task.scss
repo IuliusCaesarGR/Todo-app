@@ -11,6 +11,7 @@ figure{
     bottom: 30px;
     left: 50%;
     transform: translate(-50%, 0);
+    z-index: 3;
 }
 .todo{
     display: flex;
@@ -25,10 +26,9 @@ figure{
         display: flex;
         width: 25px;
         height: 25px;
-        border-radius: 50%;
+        border-radius: 50% !important;
         background-image: $gradient;
         align-items: center;
-        margin-right: 13px;
         img{
             margin: 0 auto;
             width: 11px;
@@ -39,27 +39,32 @@ figure{
         display: flex;
         width: 25px;
         height: 25px;
-        border-radius: 50%;
+        border-radius: 50% !important;
         background-image: white;
         border: 1px solid black;
         align-items: center;
-        margin-right: 13px;
     }
     &__text{
         width: 83%;
         font-size: 14px;
+        padding-left: 10px;
     }
     &__done{
         width: 83%;
         font-size: 14px;
         text-decoration: line-through;
         color: hsl(233, 11%, 84%);
+        padding-left: 10px;
     }
     &__cross{
         margin-left: 10px;
     }
 }
-.task ::before {
+.task :first-child {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+}
+.task :last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }

@@ -6,18 +6,36 @@ const TodoContext = React.createContext();
 
 function TodoProvider(props){
     const [todos, saveTodos] = useSessionStorage('TODOS_V1', defaultTodo); // sessionStorage's custom Hook
-    console.log(todos)
+    /* console.log(todos) */
     // How many are finish
     const completedTodos = todos.filter(todo => !todo.completed).length;
+    // Modal
+    const [openModal, setOpenModal] = React.useState(false);
 
+    // change task per state
+    let searchedTodos = [];
+const [buttonPressed, setButtonPressed] = React.useState('all');
+switch(buttonPressed){
+    case 'all':
+        searchedTodos = [...todos];
+        /* console.log(buttonPressed) */
+    break;
+    case 'active':
+        searchedTodos = todos.filter(item => item.completed === false);
+        /* console.log(buttonPressed); */
+    break;
+    case 'completed':
+        searchedTodos = todos.filter(item => item.completed === true);
+        /* console.log(buttonPressed); */
+    break;
+    default:
+        console.log('?');
+    break;
+}
     // Filter To-dos with a browser(state)
     const [ searchValue, setValue] = React.useState('');
-    let searchedTodos = [];
-
-    if (!searchValue.length >= 1) { //If the browser has nothing
-        searchedTodos = todos; // Copy the array(todos) that it will be rendering
-    } else {
-        searchedTodos = todos.filter(todo => { // Filter the To-do than have those letters.
+    if (searchValue.length >= 1) {
+        searchedTodos = searchedTodos.filter(todo => { // Filter the To-do than have those letters.
             const todoText = todo.text.toLowerCase();
             const searchText = searchValue.toLowerCase();
             return todoText.includes(searchText); //retorna el To-do que tenga las letras del buscador(input) en SearchedTodos.
@@ -36,6 +54,7 @@ function TodoProvider(props){
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
     }
+
     return (
         <TodoContext.Provider value={
             {
@@ -44,7 +63,13 @@ function TodoProvider(props){
                 completeTodo,
                 completedTodos,
                 deleteTodo,
-                searchedTodos
+                searchedTodos,
+                openModal,
+                setOpenModal,
+                todos,
+                saveTodos,
+                buttonPressed,
+                setButtonPressed
             }
         }>
             {props.children}

@@ -4,15 +4,17 @@ import Header from './components/header';
 import Browser from './components/browser';
 import { TodoList } from './components/todoList';
 import Task from './components/task';
-import Result from './components/result';
 import { ButtonFilter as Buttons } from './components/buttonFilter';
+import { CreateTodo } from './components/createTodo';
+import { Modal } from './Modal';
 
 function AppUI(){
     const {
         searchedTodos,
         completeTodo,
         deleteTodo,
-        completedTodos } = React.useContext(TodoContext);
+        openModal,
+    } = React.useContext(TodoContext);
 
     return(
         <React.Fragment>
@@ -30,9 +32,11 @@ function AppUI(){
                             />
                             ))}
                         </TodoList>
-                        <Result
-                        total={completedTodos}/>
                     </main>
+                    {!!openModal && (
+                        <Modal></Modal>
+                    )}
+                    <CreateTodo></CreateTodo>
                 <Buttons />
                 <p className='paragraph'>Drag and drop to reorder list</p>
         </React.Fragment>
